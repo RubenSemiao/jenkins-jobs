@@ -1,5 +1,14 @@
 pipeline {
     agent any
+    options{
+            buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '5'))
+            timestamps()
+        }
+        environment{
+
+            registry = "rubenalmeida/website"
+            registryCredential = 'docker'
+        }
     stages {
         stage('Clean workspace') {
             steps {
@@ -13,7 +22,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t rubenalmeida/jenkins:jnlp-1.1.3 . '
+                sh 'docker build -t rubenalmeida/website:1.6 . '
             }
         }
     }
