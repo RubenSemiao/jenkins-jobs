@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                sh 'git push https://github.com/RubenSemiao/openapps.git'
+                sh 'git clone https://github.com/RubenSemiao/openapps.git'
             }
         }
         stage('Docker Build') {
