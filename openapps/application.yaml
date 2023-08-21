@@ -16,10 +16,9 @@ spec:
     repoURL: https://github.com/RubenSemiao/openapps.git
     targetRevision: master
     path: /
-    helm:
-      parameters:
-        - name: serviceType
-          value: ClusterIP
+    directory:
+      recurse: true
+      jsonnet: { }
   destination:
     server: https://kubernetes.default.svc
     namespace: openapps
