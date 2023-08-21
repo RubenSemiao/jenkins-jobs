@@ -40,12 +40,10 @@ pipeline {
         }
         stage('5 - Deploy Application on argocd') {
             steps {
-                script {
                   kubernetes {
                     yamlFile 'application.yaml'
                     retries 2
                   }
-                }
             }
         }
     }

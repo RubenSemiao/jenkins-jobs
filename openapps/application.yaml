@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: "openapps"
+  project: "website"
   source:
     repoURL: https://github.com/RubenSemiao/openapps.git
     targetRevision: master
