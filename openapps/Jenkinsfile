@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Git') {
             steps {
-                sh 'git credentialsId: 'github', url: 'https://github.com/RubenSemiao/openapps.git''
+                git credentialsId: 'github', url: 'https://github.com/RubenSemiao/openapps.git'
             }
         }
         stage('Docker Build') {
