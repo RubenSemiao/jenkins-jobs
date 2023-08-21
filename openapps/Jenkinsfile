@@ -23,7 +23,9 @@ pipeline {
         }
         stage('3 - Docker Build') {
             steps {
-                app = docker.build("website")
+                script{
+                    app = docker.build("website")
+                }
             }
         }
         stage('4 - Docker Push') {
