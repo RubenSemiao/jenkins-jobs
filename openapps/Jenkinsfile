@@ -10,28 +10,28 @@ pipeline {
             registryCredential = 'docker'
         }
     stages {
-        stage('Clean workspace') {
+        stage('1 - Clean workspace') {
             steps {
                 sh 'rm -rf openapps'
             }
         }
-        stage('Git') {
+        stage('2 - Git') {
             steps {
                 git credentialsId: 'github', url: 'https://github.com/RubenSemiao/openapps.git'
             }
         }
-        stage('Docker Build') {
+        stage('3 - Docker Build') {
             steps {
                 sh 'docker build -t rubenalmeida/website:1.6 . '
             }
         }
-        stage('Docker Push') {
+        stage('4 - Docker Push') {
             steps{
-            script {
-                        docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push()
-                      }
-                    }
+                script {
+                  docker.withRegistry( '', registryCredential ) {
+                  dockerImage.push()
+                  }
+                }
             }
         }
         stage('Docker Push') {
