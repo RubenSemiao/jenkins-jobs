@@ -3,6 +3,7 @@ pipeline {
     options{
             buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '5'))
             timestamps()
+            skipStagesAfterUnstable()
         }
         environment{
 
@@ -22,14 +23,15 @@ pipeline {
         }
         stage('3 - Docker Build') {
             steps {
-                sh 'docker build -t rubenalmeida/website:1.6 . '
+                app = docker.build("website")
             }
         }
         stage('4 - Docker Push') {
             steps{
                 script {
                   docker.withRegistry( '', registryCredential ) {
-                  dockerImage.push()
+                  app.push("${env.BUILD_NUMBER}")
+                  app.push("1.6")
                   }
                 }
             }
