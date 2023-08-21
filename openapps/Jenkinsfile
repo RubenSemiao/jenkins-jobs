@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-                sh 'docker push rubenalmeida/website:1.6 . '
+                sh 'docker push rubenalmeida/website:1.6'
             }
         }
     }
