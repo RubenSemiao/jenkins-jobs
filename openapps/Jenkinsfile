@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Git') {
+            steps {
+                sh 'git push https://github.com/RubenSemiao/openapps.git'
+            }
+        }
         stage('Docker Build') {
             steps {
                 sh 'docker build -t rubenalmeida/jenkins:jnlp-1.1.3 . '
