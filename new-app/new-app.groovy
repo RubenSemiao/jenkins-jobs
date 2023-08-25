@@ -1,4 +1,4 @@
-pipelineJob('openapps') {
+pipelineJob('new-app') {
     definition {
         cpsScm {
             scm {
