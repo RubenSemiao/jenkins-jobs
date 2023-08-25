@@ -1,6 +1,7 @@
 import hudson.plugins.git.*;
 
-env.repos = "Afiliados"
+def pl = new ArrayList<StringParameterValue>()
+pl.add(new StringParameterValue('Afiliados', Afiliados))
 
 def scm = new GitSCM("https://github.com/RubenSemiao/jenkins-jobs.git")
 scm.branches = [new BranchSpec("*/jobs")];
