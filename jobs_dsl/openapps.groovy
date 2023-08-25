@@ -1,12 +1,15 @@
-import hudson.plugins.git.*;
-
-def scm = new GitSCM("https://github.com/RubenSemiao/jenkins-jobs.git")
-scm.branches = [new BranchSpec("*/jobs")];
-
-def flowDefinition = new org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition(scm, "openapps/Jenkinsfile")
-
-def parent = Jenkins.instance
-def job = new org.jenkinsci.plugins.workflow.job.WorkflowJob(parent, "openapps")
-job.definition = flowDefinition
-
-parent.reload()
+job('openapps') {
+    logRotator(-1, 10)
+    scm {
+        github('RubenSemiao/jenkins-jobs', 'jobs')
+    }
+    triggers {
+        githubPush()
+    }
+    steps {
+        gradle('clean build')
+    }
+    publishers {
+        archiveArtifacts('job-dsl-plugin/build/libs/job-dsl.hpi')
+    }
+}
