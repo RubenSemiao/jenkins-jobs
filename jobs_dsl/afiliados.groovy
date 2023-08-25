@@ -6,7 +6,4 @@ job('Afiliados') {
     triggers {
         githubPush()
     }
-    steps {
-        sh 'echo Hello World!'
-    }
 }

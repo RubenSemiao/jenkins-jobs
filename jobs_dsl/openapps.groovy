@@ -6,7 +6,4 @@ job('openapps') {
     triggers {
         githubPush()
     }
-    steps {
-        sh 'echo Hello World!'
-    }
 }
