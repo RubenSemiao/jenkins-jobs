@@ -7,9 +7,6 @@ job('openapps') {
         githubPush()
     }
     steps {
-        gradle('clean build')
-    }
-    publishers {
-        archiveArtifacts('job-dsl-plugin/build/libs/job-dsl.hpi')
+        sh 'echo Hello World!'
     }
 }
