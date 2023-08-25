@@ -14,8 +14,8 @@ spec:
   project: "default"
   source:
     repoURL: https://github.com/RubenSemiao/namespaces.git
-    targetRevision: uab
-    path: /
+    targetRevision: dev
+    path: uab
     directory:
       recurse: true
       jsonnet: { }
