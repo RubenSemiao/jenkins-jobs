@@ -1,5 +1,5 @@
 job('openapps') {
-    logRotator(-1, 10)
+    logRotator(-1, 3)
     scm {
         github('RubenSemiao/jenkins-jobs', 'jobs')
     }
