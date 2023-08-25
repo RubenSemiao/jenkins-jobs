@@ -6,7 +6,7 @@ metadata:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-app
+  name: openapps
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/RubenSemiao/namespaces.git
     targetRevision: dev
-    path: jenkins-helm-b
+    path: uab
     directory:
       recurse: true
       jsonnet: { }
