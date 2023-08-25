@@ -1,15 +1,12 @@
-pipelineJob('job-dsl-plugin') {
-    definition {
-        cpsScm {
-            scm {
-                git {
-                    remote {
-                        url('https://github.com/jenkinsci/job-dsl-plugin.git')
-                    }
-                    branch('*/master')
-                }
-            }
-            lightweight()
-        }
-    }
-}
+import hudson.plugins.git.*;
+
+def scm = new GitSCM("https://github.com/RubenSemiao/jenkins-jobs.git")
+scm.branches = [new BranchSpec("*/master")];
+
+def flowDefinition = new org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition(scm, "afiliados/Jenkinsfile")
+
+def parent = Jenkins.instance
+def job = new org.jenkinsci.plugins.workflow.job.WorkflowJob(parent, "Afiliados")
+job.definition = flowDefinition
+
+parent.reload()
