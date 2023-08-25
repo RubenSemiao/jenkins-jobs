@@ -1,12 +1,15 @@
-import hudson.plugins.git.*;
-
-def scm = new GitSCM("https://github.com/RubenSemiao/jenkins-jobs.git")
-scm.branches = [new BranchSpec("*/master")];
-
-def flowDefinition = new org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition(scm, "afiliados/Jenkinsfile")
-
-def parent = Jenkins.instance
-def job = new org.jenkinsci.plugins.workflow.job.WorkflowJob(parent, "Afiliados")
-job.definition = flowDefinition
-
-parent.reload()
+def project = 'RubenSemiao/jenkins-jobs'
+def branchApi = new URL("https://api.github.com/repos/${project}/branches")
+def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
+branches.each {
+    def branchName = it.name
+    def jobName = "${project}-${branchName}".replaceAll('/','-')
+    job(jobName) {
+        scm {
+            git("git://github.com/${project}.git", branchName)
+        }
+        steps {
+            maven("test -Dproject.name=${project}/${branchName}")
+        }
+    }
+}
