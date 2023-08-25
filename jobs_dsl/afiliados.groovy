@@ -1,6 +1,6 @@
 import hudson.plugins.git.*;
 
-def repos = "Afiliados"
+env.repos = "Afiliados"
 
 def scm = new GitSCM("https://github.com/RubenSemiao/jenkins-jobs.git")
 scm.branches = [new BranchSpec("*/jobs")];
