@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name:  openapps
+  name:  Afiliados
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -13,9 +13,9 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: https://github.com/RubenSemiao/namespaces.git
+    repoURL: https://github.com/RubenSemiao/namespace.git
     targetRevision: dev
-    path: jenkins-helm-b
+    path: afiliados
     directory:
       recurse: true
       jsonnet: { }

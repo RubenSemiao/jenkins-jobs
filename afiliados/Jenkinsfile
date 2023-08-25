@@ -14,12 +14,12 @@ pipeline {
     stages {
         stage('1 - Clean workspace') {
             steps {
-                sh 'rm -rf openapps'
+                sh 'rm -rf afiliados'
             }
         }
         stage('2 - Git Update') {
             steps {
-                git credentialsId: 'github', url: 'https://github.com/RubenSemiao/openapps.git'
+                git credentialsId: 'github', url: 'https://github.com/RubenSemiao/afiliados.git'
             }
         }
         stage('3 - Docker Build') {
