@@ -13,8 +13,8 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: https://github.com/RubenSemiao/openapps.git
-    targetRevision: master
+    repoURL: https://github.com/RubenSemiao/namespaces.git
+    targetRevision: jenkins-helm-b
     path: /
     directory:
       recurse: true
