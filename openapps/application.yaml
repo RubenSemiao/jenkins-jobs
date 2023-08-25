@@ -7,7 +7,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: openapps
-  namespace: openapps
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -21,7 +21,7 @@ spec:
       jsonnet: { }
   destination:
     server: https://kubernetes.default.svc
-    namespace: openapps
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
