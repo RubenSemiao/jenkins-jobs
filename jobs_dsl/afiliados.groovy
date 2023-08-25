@@ -1,15 +1,15 @@
-def project = 'RubenSemiao/jenkins-jobs'
-def branchApi = new URL("https://api.github.com/repos/${project}/branches")
-def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
-branches.each {
-    def branchName = it.name
-    def jobName = "${project}-${branchName}".replaceAll('/','-')
-    job(jobName) {
-        scm {
-            git("git://github.com/${project}.git", branchName)
-        }
-        steps {
-            maven("test -Dproject.name=${project}/${branchName}")
+pipelineJob('job-dsl-plugin') {
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url('https://github.com/jenkinsci/job-dsl-plugin.git')
+                    }
+                    branch('*/master')
+                }
+            }
+            lightweight()
         }
     }
 }
