@@ -1,8 +1,13 @@
-job('Afiliados') {
+pipelineJob('Afiliados') {
     logRotator(-1, 3)
-    scm {
-        github('RubenSemiao/jenkins-jobs', 'jobs')
+    definition {
+        cpsScm {
+            scm {
+                github('RubenSemiao/jenkins-jobs', 'jobs')
+            }
+        }
     }
+    scriptPath ('afiliados/JenkinsFile')
     triggers {
         githubPush()
     }
