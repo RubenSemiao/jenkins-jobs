@@ -7,7 +7,6 @@ pipelineJob('Afiliados') {
             }
         }
     }
-    scriptPath("Jenkinsfile")
     triggers {
         githubPush()
     }
