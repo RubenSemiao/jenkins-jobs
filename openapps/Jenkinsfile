@@ -19,11 +19,7 @@ pipeline {
         }
         stage('2 - Git Update') {
             steps {
-                cpsScm {
-                    scm {
-                        github('https://github.com/RubenSemiao/openapps.git', 'openapps')
-                    }
-                }
+                git credentialsId: 'github', url: 'https://github.com/RubenSemiao/openapps.git', branch: 'openapps'
             }
         }
         stage('3 - Docker Build') {
