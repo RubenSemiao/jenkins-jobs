@@ -9,7 +9,7 @@ pipeline {
 
             imagename = "rubenalmeida/openapps"
             registryCredential = 'docker'
-            dockerImage = 'latest'
+            dockerImage = ''
         }
     stages {
         stage('1 - Clean workspace') {
@@ -33,7 +33,7 @@ pipeline {
             steps{
                 script {
                   docker.withRegistry( '', registryCredential ) {
-                  dockerImage.push()
+                  dockerImage.push('latest')
                   }
                 }
             }
