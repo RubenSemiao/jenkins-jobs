@@ -1,17 +1,25 @@
 name: Trigger Jenkins Job
 on:
   push:
+    branches:
+      - jobs # Replace with the branch name you want to monitor
     paths:
-      - 'afiliados/**'
+      - 'afiliados/**' # Replace with the directory path you want to monitor
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Check directory changes
+      - name: Check branch and directory changes
         id: check_changes
-        run: echo "Directory changes detected" # Modify this to perform actual checks
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/jobs" && -n "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^afiliados/')" ]]; then
+            echo "Changes detected in the specified branch and directory"
+          else
+            echo "No changes in the specified branch and directory"
+            exit 1
+          fi
 
       - name: Trigger Jenkins Job
         if: steps.check_changes.outputs.return-code == '0'
