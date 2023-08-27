@@ -15,10 +15,9 @@ spec:
   source:
     repoURL: https://github.com/RubenSemiao/namespaces.git
     targetRevision: dev
-    path: uab
+    path: openapps
     directory:
       recurse: true
-      jsonnet: { }
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
