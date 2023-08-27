@@ -19,7 +19,7 @@ pipeline {
         }
         stage('2 - Git Update') {
             steps {
-                git credentialsId: 'github', url: 'https://github.com/RubenSemiao/openapps.git'
+                git credentialsId: 'github', url: 'https://github.com/RubenSemiao/openapps.git', branch: 'openapps'
             }
         }
         stage('3 - Docker Build') {
