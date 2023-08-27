@@ -25,9 +25,6 @@ pipeline {
                     }
                 }
             }
-            triggers {
-                githubPush()
-            }
         }
         stage('3 - Docker Build') {
             steps {
