@@ -5,6 +5,7 @@ pipelineJob('Openapps') {
             scm {
                 github('RubenSemiao/jenkins-jobs', 'jobs')
             }
+            scriptPath("openapps/Jenkinsfile")
         }
     }
     triggers {

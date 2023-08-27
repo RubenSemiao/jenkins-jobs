@@ -5,6 +5,7 @@ pipelineJob('Afiliados') {
             scm {
                 github('RubenSemiao/jenkins-jobs', 'jobs')
             }
+            scriptPath("afiliados/Jenkinsfile")
         }
     }
     triggers {
