@@ -12,4 +12,4 @@ jobs:
           url: "https://jenkins.wingdeveloper.pt"
           user: "ruben"
           token: "1197fb5e77c70cd21d6bf18a9497cf79a1"
-          job: "testt"
+          job: "Jobs"
