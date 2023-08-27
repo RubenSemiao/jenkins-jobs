@@ -1,4 +1,4 @@
-pipelineJob('Opensapps') {
+pipelineJob('Openapps') {
     logRotator(-1, 3)
     definition {
         cpsScm {
@@ -7,7 +7,6 @@ pipelineJob('Opensapps') {
             }
         }
     }
-    scriptPath 'Jenkinsfile'
     triggers {
         githubPush()
     }
