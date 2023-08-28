@@ -4,6 +4,7 @@ pipelineJob('Afiliados') {
         cpsScm {
             scm {
                 github('RubenSemiao/websites', 'afiliados')
+                credentials('github') // Replace with your credentials ID
             }
         }
     }
