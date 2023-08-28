@@ -8,13 +8,13 @@ pipeline {
     stages {
         stage('1 - Clean workspace') {
             steps {
-                sh 'rm -rf monitoring'
+                sh 'rm -rf grafana'
             }
         }
-        stage('2 - Deploy Prometheus -> ArgoCD') {
+        stage('2 - Deploy Grafana -> ArgoCD') {
             steps {
                 script {
-                    sh ' kubectl apply -f https://raw.githubusercontent.com/RubenSemiao/jenkins-jobs/jobs/monitoring/application.yml'
+                    sh ' kubectl apply -f https://raw.githubusercontent.com/RubenSemiao/jenkins-jobs/jobs/grafana/application.yml'
                 }
             }
         }
