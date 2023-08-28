@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '3', daysToKeepStr: '5'))
+        timestamps()
+        skipStagesAfterUnstable()
+    }
+    environment{
+
+        imagename = "rubenalmeida/afiliados"
+        registryCredential = 'docker'
+        dockerImage = 'latest'
+    }
+    stages {
+        stage('Deploy Application on argocd') {
+            steps {
+                script {
+                    sh ' kubectl apply -f https://raw.githubusercontent.com/RubenSemiao/jenkins-jobs/jobs/monitoring/application.yaml'
+                }
+            }
+        }
+    }
+}
