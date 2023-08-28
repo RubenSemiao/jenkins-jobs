@@ -4,7 +4,6 @@ pipelineJob('Aplicações') {
         cpsScm {
             scm {
                 github('RubenSemiao/jenkins-jobs', 'jobs'){
-                    credentials('github') // Replace with your credentials ID
                 }
             }
             scriptPath("monitoring/Jenkinsfile")

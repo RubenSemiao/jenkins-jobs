@@ -4,7 +4,6 @@ pipelineJob('Openapps') {
         cpsScm {
             scm {
                 github('RubenSemiao/websites', 'openapps')
-                credentials('github') // Replace with your credentials ID
             }
         }
     }
