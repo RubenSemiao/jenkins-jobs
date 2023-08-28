@@ -6,7 +6,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Deploy Application on argocd') {
+        stage('Deploy Aplicação no ArgoCD') {
             steps {
                 script {
                     sh ' kubectl apply -f https://raw.githubusercontent.com/RubenSemiao/jenkins-jobs/jobs/monitoring/application.yml'
