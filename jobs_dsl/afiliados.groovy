@@ -3,9 +3,8 @@ pipelineJob('Afiliados') {
     definition {
         cpsScm {
             scm {
-                github('RubenSemiao/jenkins-jobs', 'jobs')
+                github('RubenSemiao/websites', 'afiliados')
             }
-            scriptPath("afiliados/Jenkinsfile")
         }
     }
     triggers {
