@@ -14,7 +14,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          changed_files=$(git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep '^*/' || true)
+          changed_files=$(git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep '.*/' || true)
           echo "CHANGES=$changed_files" >> $GITHUB_ENV
 
       - name: Trigger Jenkins Job
