@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name:  Monitoring
+  name:  monitoring
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Monitoring
+  name: monitoring
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
