@@ -1,4 +1,4 @@
-pipelineJob('Aplicações') {
+pipelineJob('Grafana') {
     logRotator(-1, 3)
     definition {
         cpsScm {
