@@ -7,17 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for changes
-        id: check_changes
-        run: |
-          changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          if [[ -n "$changed_files" ]]; then
-            echo "Changes detected in the specified directory"
-            echo "::set-output name=changes::true"
-          else
-            echo "No changes in the specified directory"
-            echo "::set-output name=changes::false"
-          fi
+
       - name: Trigger Jenkins Job
         if: steps.check_changes.outputs.changes == 'true'
         uses: appleboy/jenkins-action@master
