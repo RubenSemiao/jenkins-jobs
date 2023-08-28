@@ -4,7 +4,7 @@ on:
     branches:
       - main # Replace with the branch name you want to monitor
     paths:
-      - 'jobs_dsl' # Replace with the specific directory path
+      - 'jobs_dsl/**' # Replace with the specific directory path
 
 jobs:
   build:
