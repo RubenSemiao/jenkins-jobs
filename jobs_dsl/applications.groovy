@@ -3,7 +3,9 @@ pipelineJob('Aplicações') {
     definition {
         cpsScm {
             scm {
-                github('RubenSemiao/namespaces', 'dev')
+                github('RubenSemiao/jenkins-jobs', 'jobs'){
+                    credentials('github') // Replace with your credentials ID
+                }
             }
         }
         scriptPath("monitoring/Jenkinsfile")
