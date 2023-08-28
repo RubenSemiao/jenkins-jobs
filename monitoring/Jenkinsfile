@@ -5,12 +5,6 @@ pipeline {
         timestamps()
         skipStagesAfterUnstable()
     }
-    environment{
-
-        imagename = "rubenalmeida/afiliados"
-        registryCredential = 'docker'
-        dockerImage = 'latest'
-    }
     stages {
         stage('Deploy Application on argocd') {
             steps {
