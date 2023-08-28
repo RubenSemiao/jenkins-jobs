@@ -9,7 +9,7 @@ pipeline {
         stage('Deploy Application on argocd') {
             steps {
                 script {
-                    sh ' kubectl apply -f https://raw.githubusercontent.com/RubenSemiao/jenkins-jobs/jobs/monitoring/application.yaml'
+                    sh ' kubectl apply -f https://raw.githubusercontent.com/RubenSemiao/jenkins-jobs/jobs/monitoring/application.yml'
                 }
             }
         }
