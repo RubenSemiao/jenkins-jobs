@@ -18,8 +18,8 @@ spec:
     path: monitoring
     helm:
       valueFiles:
-        - prometheus/values.yaml
-        - grafana/values-grafana.yaml
+        - /prometheus/values.yaml
+        - /grafana/values-grafana.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
