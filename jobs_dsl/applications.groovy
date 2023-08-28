@@ -6,6 +6,7 @@ pipelineJob('Aplicações') {
                 github('RubenSemiao/namespaces', 'dev')
             }
         }
+        scriptPath("monitoring/Jenkinsfile")
     }
     triggers {
         githubPush()
