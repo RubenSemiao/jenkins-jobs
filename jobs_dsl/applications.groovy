@@ -7,8 +7,8 @@ pipelineJob('Aplicações') {
                     credentials('github') // Replace with your credentials ID
                 }
             }
+            scriptPath("monitoring/Jenkinsfile")
         }
-        scriptPath("monitoring/Jenkinsfile")
     }
     triggers {
         githubPush()
