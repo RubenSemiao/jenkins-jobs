@@ -2,9 +2,9 @@ name: Trigger Jenkins Job
 on:
   push:
     branches:
-      - master # Replace with the branch name you want to monitor
+      - main # Replace with the branch name you want to monitor
     paths:
-      - 'jobs_dsl/**' # Replace with the specific directory path
+      - 'jobs_dsl' # Replace with the specific directory path
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
       - name: Check conditions
         id: check_conditions
         run: |
-          if [[ ${{ github.ref }} == 'refs/heads/master' && -n "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -E 'jobs_dsl/(openapps.groovy|afiliados.groovy)')" ]]; then
+          if [[ ${{ github.ref }} == 'refs/heads/main' && -n "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -E 'jobs_dsl/(openapps.groovy|afiliados.groovy)')" ]]; then
             echo "Triggering Jenkins job"
             echo "Directory changes detected"
           else
