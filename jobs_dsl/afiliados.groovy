@@ -3,7 +3,7 @@ pipelineJob('Afiliados') {
     definition {
         cpsScm {
             scm {
-                github('RubenSemiao/websites', 'afiliado')
+                github('RubenSemiao/websites', 'afiliados')
             }
         }
     }
