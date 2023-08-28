@@ -2,9 +2,8 @@ name: Trigger Jenkins Job
 on:
   push:
     branches:
-      - jobs # Replace with the branch name you want to monitor
-    paths:
-      - 'openapps/**' # Replace with the directory path you want to monitor
+      - openapps # Replace with the branch name you want to monitor
+
 
 jobs:
   build:
@@ -14,10 +13,10 @@ jobs:
       - name: Check branch and directory changes
         id: check_changes
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/jobs" && -n "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^openapps/**')" ]]; then
-            echo "Changes detected in the specified branch and directory"
+          if [[ "${{ github.event.repository.name }}" == "https://github.com/RubenSemiao/websites.git" && "${{ github.ref }}" == "refs/heads/dev" && -n "$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})" ]]; then
+            echo "Changes detected in the specified branch and directory of the desired repository"
           else
-            echo "No changes in the specified branch and directory"
+            echo "No changes in the specified branch and directory of the desired repository"
             exit 1
           fi
 
