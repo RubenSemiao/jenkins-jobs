@@ -20,7 +20,7 @@ jobs:
       - name: Trigger Jenkins Job
         env:
           CHANGES: ${{ steps.check_changes.outputs.CHANGES }}
-        if: env.CHANGES == 'true'
+        if: env.CHANGES == ''
         uses: appleboy/jenkins-action@master
         with:
           url: "https://jenkins.wingdeveloper.pt"
