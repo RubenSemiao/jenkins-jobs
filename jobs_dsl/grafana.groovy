@@ -3,8 +3,7 @@ pipelineJob('Grafana') {
     definition {
         cpsScm {
             scm {
-                github('RubenSemiao/jenkins-jobs', 'jobs'){
-                }
+                github('RubenSemiao/jenkins-jobs', 'jobs')
             }
             scriptPath("grafana/Jenkinsfile")
         }

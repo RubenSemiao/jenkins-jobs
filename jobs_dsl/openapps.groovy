@@ -7,6 +7,7 @@ pipelineJob('Openapps') {
                 }
             }
             scriptPath("openapps/Jenkinsfile")
+        }
     }
     triggers {
         githubPush()
