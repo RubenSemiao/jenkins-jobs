@@ -3,9 +3,10 @@ pipelineJob('Openapps') {
     definition {
         cpsScm {
             scm {
-                github('RubenSemiao/websites', 'openapps')
+                github('RubenSemiao/jenkins-jobs', 'jobs')
             }
         }
+        scriptPath("openapps/Jenkinsfile")
     }
     triggers {
         githubPush()
