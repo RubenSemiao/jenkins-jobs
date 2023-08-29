@@ -4,7 +4,6 @@ pipelineJob('Openapps') {
         cpsScm {
             scm {
                 github('RubenSemiao/jenkins-jobs', 'jobs')
-                }
             }
             scriptPath("openapps/Jenkinsfile")
         }
